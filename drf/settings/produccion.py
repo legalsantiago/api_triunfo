@@ -3,17 +3,17 @@ from .base import *   #LLAMANDO AL ARCHIVO BASE
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["15.229.6.215"]
+ALLOWED_HOSTS = ["15.228.201.80"]
 
 import os
 #REMPLAZAR DATOS DE LA BASE DE DATOS ACTUAL
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'apiTest',
-        'USER': 'triunfo',
-        'PASSWORD': 'triunfo2023',
-        'HOST': 'databaseaws2.ctpv9egj42p9.sa-east-1.rds.amazonaws.com',
+        'NAME': 'triunfoApi',
+        'USER': 'triunfo23',
+        'PASSWORD': 'triunfo2023#.',
+        'HOST': 'database-triunfo1.ctpv9egj42p9.sa-east-1.rds.amazonaws.com',
         'PORT': '5432'
     }
 }
