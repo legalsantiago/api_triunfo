@@ -10,7 +10,11 @@ https://docs.djangoproject.com/en/4.2/howto/deployment/asgi/
 import os
 
 from django.core.asgi import get_asgi_application
+from drf.settings.base import DEBUG
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf.settings.produccion')
+if DEBUG:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf.settings.local')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf.settings.produccion')
 
 application = get_asgi_application()
