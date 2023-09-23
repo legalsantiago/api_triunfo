@@ -24,7 +24,7 @@ class UserSerializerCreate(serializers.ModelSerializer):
         name = validated_data['name'],
         last_name = validated_data['last_name'],
         email=validated_data['email'],
-        cargo=validated_data['Position_company'],
+        Position_company=validated_data['Position_company'],
         document_id=validated_data['document_id']
         ) 
         user.set_password(validated_data['password'])
@@ -46,23 +46,13 @@ class UserSerializerBase(serializers.ModelSerializer):
                   'name',
                   'last_name',
                   'document_id',
-                  'email',
-                  'Position_company',
-                  'is_active']
-        
-
-    def to_representation(self, instance):
-        return {
-            'Id':instance.id,
-            'Username': instance.username,
-            'Nombre': instance.name,
-            'Email': instance.email,
-            'Apellidos': instance.last_name,
-        }
-
+                  'email']
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
 
+   
+
+    
