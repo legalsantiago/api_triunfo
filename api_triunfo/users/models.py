@@ -35,6 +35,7 @@ class UserManager(BaseUserManager):
 		return self._create_user(username, email, name,last_name, password, **extra_fields)
 
 #MODELO USUARIO CREACION BD
+#AGREGAR CAMPO NULO O BLACK DIFERENCIAS Y PORQUE?
 class User(AbstractBaseUser, PermissionsMixin):
      
 	username = models.CharField(max_length=50, unique = True, blank=False, null=False)
@@ -42,11 +43,11 @@ class User(AbstractBaseUser, PermissionsMixin):
 	name = models.CharField('Nombres', max_length = 100, blank = False, null = False)
 	last_name = models.CharField('Apellidos', max_length= 100, blank=True, null = True)
 	document_id = models.CharField("N° de documento", max_length=50, unique= True, blank=True, null=True)
-	cargo = models.CharField("Cargo", max_length=25, blank=True, null=True)
+	Position_company = models.CharField("Puesto en compañia", max_length=25, blank=True, null=True)#  <------ ANALIZAR ESTE CAMPO
 	is_active = models.BooleanField(default = True)
 	is_staff = models.BooleanField(default = False)
 	historical = HistoricalRecords() 
-	objects = UserManager()
+	objects = UserManager() #WHAT USER MANAGER USOS
 
 	USERNAME_FIELD = 'username'
 	REQUIRED_FIELDS = ['email', 'name', 'last_name','password']

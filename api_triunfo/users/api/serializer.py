@@ -14,7 +14,7 @@ class UserSerializerCreate(serializers.ModelSerializer):
                   'name',
                   'last_name',
                   'email',
-                  'cargo',
+                  'Position_company',
                   'document_id',
                   'password']
         
@@ -24,7 +24,7 @@ class UserSerializerCreate(serializers.ModelSerializer):
         name = validated_data['name'],
         last_name = validated_data['last_name'],
         email=validated_data['email'],
-        cargo=validated_data['cargo'],
+        cargo=validated_data['Position_company'],
         document_id=validated_data['document_id']
         ) 
         user.set_password(validated_data['password'])
@@ -47,7 +47,7 @@ class UserSerializerBase(serializers.ModelSerializer):
                   'last_name',
                   'document_id',
                   'email',
-                  'cargo',
+                  'Position_company',
                   'is_active']
         
 
