@@ -46,23 +46,13 @@ class UserSerializerBase(serializers.ModelSerializer):
                   'name',
                   'last_name',
                   'document_id',
-                  'email',
-                  'Position_company',
-                  'is_active']
-        
-
-    def to_representation(self, instance):
-        return {
-            'id':instance.id,
-            'username': instance.username,
-            'nombre': instance.name,
-            'email': instance.email,
-            'apellidos': instance.last_name,
-        }
-
+                  'email']
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
 
+   
+
+    

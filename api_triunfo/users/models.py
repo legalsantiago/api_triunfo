@@ -43,7 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 	name = models.CharField('Nombres', max_length = 100, blank = False, null = False)
 	last_name = models.CharField('Apellidos', max_length= 100, blank=True, null = True)
 	document_id = models.CharField("N° de documento", max_length=50, unique= True, blank=True, null=True)
-	Position_company = models.CharField("Cargo", max_length=25, blank=True, null=True)#  <------ ANALIZAR ESTE CAMPO
+	Position_company = models.CharField("Puesto en compañia", max_length=25, blank=True, null=True)#  <------ ANALIZAR ESTE CAMPO
 	is_active = models.BooleanField(default = True)
 	is_staff = models.BooleanField(default = False)
 	historical = HistoricalRecords() 

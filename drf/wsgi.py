@@ -10,7 +10,9 @@ https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
 import os
 
 from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf.settings.local')
-
+from drf.settings.base import DEBUG
+if DEBUG:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf.settings.local')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf.settings.produccion')
 application = get_wsgi_application()

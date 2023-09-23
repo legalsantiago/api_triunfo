@@ -34,8 +34,8 @@ class UserAPIview(GenericViewSet):
         return Response(users_serializados.data, status=status.HTTP_200_OK)
     
     @swagger_auto_schema(
-        request_body=serializer_class_create,  # Define el serializador para la solicitud
-        responses={200: serializer_class_create}  # Define el serializador para la respuesta
+        request_body = serializer_class_create,  # Define el serializador para la solicitud
+        responses = {200: serializer_class_create}  # Define el serializador para la respuesta
     )
     def create(self, request):
         serializer_user = self.serializer_class_create(data=request.data)
