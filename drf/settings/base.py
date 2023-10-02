@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-dt9uf)k5bl(rd^3dm$fu2s2=+bnez$5e@ggzlm=%7g&hz7t&ks
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['api-env-test.eba-nbviuptz.sa-east-1.elasticbeanstalk.com']
 
 
 # Application definition
@@ -136,7 +136,8 @@ AUTH_USER_MODEL = 'users.User'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

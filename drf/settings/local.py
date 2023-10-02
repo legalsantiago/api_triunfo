@@ -3,7 +3,10 @@ from .base import *   #LLAMANDO AL ARCHIVO BASE
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = [
+    'localhost',
+    'api-env-test.eba-nbviuptz.sa-east-1.elasticbeanstalk.com'
+]
 
 
 #conexion EN LOCAL REMPALZAR DATOS POR NUEVA BASE
