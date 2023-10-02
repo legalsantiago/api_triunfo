@@ -11,7 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 from drf.settings.base import DEBUG
-if DEBUG:
+if DEBUG is True:
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf.settings.local')
 else:
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf.settings.produccion')

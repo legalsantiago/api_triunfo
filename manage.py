@@ -6,7 +6,7 @@ from drf.settings.base import DEBUG
 
 def main():
     """Run administrative tasks."""
-    if DEBUG:
+    if DEBUG is True:
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf.settings.local')
     else:
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf.settings.produccion')
