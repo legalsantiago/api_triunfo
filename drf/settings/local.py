@@ -5,7 +5,8 @@ from .base import *   #LLAMANDO AL ARCHIVO BASE
 
 ALLOWED_HOSTS = [
     'localhost',
-    'api-env-test.eba-nbviuptz.sa-east-1.elasticbeanstalk.com'
+    'api-env-test.eba-nbviuptz.sa-east-1.elasticbeanstalk.com',
+    '172.31.28.14'
 ]
 
 
