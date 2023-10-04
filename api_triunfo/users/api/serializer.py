@@ -12,7 +12,6 @@ class UserSerializerCreate(serializers.ModelSerializer):
         model = User
         fields = ['username',
                   'name',
-                  'last_name',
                   'email',
                   'Position_company',
                   'document_id',
@@ -44,9 +43,7 @@ class UserSerializerBase(serializers.ModelSerializer):
         fields = ['id',
                   'username',
                   'name',
-                  'last_name',
-                  'document_id',
-                  'email']
+                  'document_id']
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

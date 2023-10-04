@@ -23,15 +23,21 @@ class UserAPIview(GenericViewSet):
 
     def get_queryset(self):
         if self.queryset is None:
-            self.queryset = self.serializer_class().Meta.model.objects.filter(is_active = True)
+            self.queryset = self.serializer_class().Meta.model.objects.filter(is_active = True).values('id',
+                                                                                                       'username',
+                                                                                                       'name',
+                                                                                                       'document_id')
             return self.queryset
         else: 
             return self.queryset
     
     def list(self, request):
         users = self.get_queryset()
+        print(users)
         users_serializados = self.serializer_class(users,many=True)
+        print(users_serializados.data)
         return Response(users_serializados.data, status=status.HTTP_200_OK)
+    
     
     @swagger_auto_schema(
         request_body = serializer_class_create,  # Define el serializador para la solicitud
@@ -54,6 +60,7 @@ class UserAPIview(GenericViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response({"message": "El usuario no existe"}, status=status.HTTP_404_NOT_FOUND)
+        
 
     @swagger_auto_schema(
         request_body= serializer_class_create,  # Define el serializador para la solicitud
