@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     
 ]
-
+# AUTHENTICATION JWT
 REST_FRAMEWORK = {
  
     'DEFAULT_AUTHENTICATION_CLASSES': (

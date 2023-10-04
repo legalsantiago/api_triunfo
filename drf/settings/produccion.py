@@ -3,7 +3,7 @@ from .base import *   #LLAMANDO AL ARCHIVO BASE
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ["15.228.201.80","localhost"]
+ALLOWED_HOSTS = ["15.228.201.80"]
 
 import os
 #REMPLAZAR DATOS DE LA BASE DE DATOS ACTUAL
