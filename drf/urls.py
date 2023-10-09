@@ -14,7 +14,7 @@ from rest_framework_simplejwt.views import (
 schema_view = get_schema_view(
    openapi.Info(
       title="Swagger Api",
-      default_version='v1',
+      default_version='V1',
       description="Test Swagger documentation",
       terms_of_service="http://127.0.0.1:8000/",
       contact=openapi.Contact(email="santiagotriunfobet1@gmail.com"),
@@ -31,7 +31,7 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('',include('api_triunfo.users.api.routers')),
     path('api/token/', TokenObtainPairView.as_view(), name='obtener new token'),
-    path('api_triunfo/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api_triunfo/token/blacklist/', TokenBlacklistView.as_view(), name='token_blacklist')
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/token/blacklist/', TokenBlacklistView.as_view(), name='token_blacklist')
     
 ]

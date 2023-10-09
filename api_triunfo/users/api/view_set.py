@@ -2,7 +2,8 @@ from rest_framework.viewsets import GenericViewSet
 #from django.contrib.auth.models import Group
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.response import Response
-from api_triunfo.users.api.serializer import UserSerializerBase,UserSerializerCreate
+from rest_framework.decorators import action
+from api_triunfo.users.api.serializer import UserSerializerBase,UserSerializerCreate, serializerPassword
 from rest_framework import status
 from api_triunfo.users.models import User
 
@@ -30,12 +31,34 @@ class UserAPIview(GenericViewSet):
             return self.queryset
         else: 
             return self.queryset
+        
+         
+    #actualizar contraseña
+    @swagger_auto_schema(
+        request_body = serializerPassword,  # Define el serializador para la solicitud
+        responses = {200: serializerPassword}  # Define el serializador para la respuesta
+    )
+    @action(detail=True, methods=['post'], url_path='update_password')
+    def change_password(self,request,pk=None):
+        user = self.modelo.objects.get(id = pk)
+        serializer_password = serializerPassword(data = request.data)  
+
+        if serializer_password.is_valid():
+            new_password = serializer_password.validated_data.get('new_password')
+            print(new_password)
+            user.set_password(new_password)
+            user.save()
+            return Response({'message':'contraseña actualizada',},status=status.HTTP_200_OK)
+        else: 
+            return Response({
+                'message':'errores en la data recibida' ,
+                'errors':serializer_password.errors
+            }, status=status.HTTP_400_BAD_REQUEST)
+    
     
     def list(self, request):
         users = self.get_queryset()
-        print(users)
         users_serializados = self.serializer_class(users,many=True)
-        print(users_serializados.data)
         return Response(users_serializados.data, status=status.HTTP_200_OK)
     
     

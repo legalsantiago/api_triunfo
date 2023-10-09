@@ -1,6 +1,7 @@
 __pycache__
 .pytest_cache
 tests
+uso url-regulares.txt
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
