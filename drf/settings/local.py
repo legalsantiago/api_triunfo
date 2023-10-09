@@ -6,7 +6,7 @@ from .base import *   #LLAMANDO AL ARCHIVO BASE
 ALLOWED_HOSTS = ['localhost']
 
 
-#conexion EN LOCAL REMPALZAR DATOS POR NUEVA BASE
+#conexion EN LOCAL REMPLAZAR DATOS POR NUEVA BASE
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
